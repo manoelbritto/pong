@@ -6,14 +6,18 @@ screen = Screen()
 screen.setup(width = 800, height=600)
 screen.bgcolor("Black")
 screen.title("Pong")
+screen.tracer(0)
 
-paddle = Paddle()
+paddle = Paddle('game1')
+paddle2 = Paddle('game2')
 
 screen.listen()
 screen.onkey(paddle.up, "Up")
 screen.onkey(paddle.down, "Down")
-# screen.onkey(snake.down, "Down")
-# screen.onkey(snake.left, "Left")
-# screen.onkey(snake.right, "Right")
+
+game_is_on = True
+
+while game_is_on:
+    screen.update()
 
 screen.exitonclick()

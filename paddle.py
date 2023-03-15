@@ -7,14 +7,16 @@ RIGHT = 0
 
 
 class Paddle(Turtle):
-    def __init__(self):
+    def __init__(self, start):
         super().__init__()
-
         self.shape("square")
         self.color("white")
         self.shapesize(5, 1)
         self.penup()
-        self.goto(350, 0)
+        if start == 'game1':
+            self.goto(350, 0)
+        else:
+            self.goto(-350, 0)
 
 
     def up(self):
