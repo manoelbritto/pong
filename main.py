@@ -1,6 +1,7 @@
 from turtle import Screen
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreboard
 import time
 
 screen = Screen()
@@ -11,6 +12,8 @@ screen.tracer(0)
 
 r_paddle = Paddle((350, 0))
 l_paddle = Paddle((-350, 0))
+scoreboard = Scoreboard()
+
 ball = Ball((0,0))
 
 
@@ -35,9 +38,12 @@ while game_is_on:
         ball.bounce_x()
 
     #reset the ball position
-    if ball.xcor() > 350 or ball.xcor() < -350:
+    if ball.xcor() > 370:
+        scoreboard.l_point()
         ball.ball_reset()
 
-
+    if ball.xcor() < -370:
+        scoreboard.r_point()
+        ball.ball_reset()
 
 screen.exitonclick()
