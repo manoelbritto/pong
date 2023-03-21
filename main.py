@@ -9,17 +9,17 @@ screen.bgcolor("Black")
 screen.title("Pong")
 screen.tracer(0)
 
-l_paddle = Paddle((350, 0))
-r_paddle = Paddle((-350, 0))
+r_paddle = Paddle((350, 0))
+l_paddle = Paddle((-350, 0))
 ball = Ball((0,0))
 
 
 screen.listen()
-screen.onkey(l_paddle.up, "Up")
-screen.onkey(l_paddle.down, "Down")
+screen.onkey(r_paddle.up, "Up")
+screen.onkey(r_paddle.down, "Down")
 
-screen.onkey(r_paddle.up, "w")
-screen.onkey(r_paddle.down, "s")
+screen.onkey(l_paddle.up, "w")
+screen.onkey(l_paddle.down, "s")
 
 game_is_on = True
 while game_is_on:
@@ -31,8 +31,7 @@ while game_is_on:
         ball.bounce_y()
 
     #defect collition with r_paddle
-    if ball.distance(r_paddle) < 50 and ball.xcor() > 340:
-        print("hit")
+    if ball.distance(r_paddle) < 50 and ball.xcor() > 320 or ball.distance(l_paddle) < 50 and ball.xcor() < -320:
         ball.bounce_x()
 
 
