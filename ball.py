@@ -9,17 +9,18 @@ class Ball(Turtle):
         self.shapesize(1.5, 1.5)
         self.goto(position)
         self.penup()
+        self.x_move = 10
+        self.y_move = 10
 
         # self.move()
 
     def move(self):
-        new_x = self.xcor() + 10
-        new_y = self.ycor() + 10
+        new_x = self.xcor() + self.x_move
+        new_y = self.ycor() + self.y_move
         self.goto(new_x, new_y)
 
-    def bounce(self, position_x, position_y):
-        print (position_x, position_y)
-        new_x = position_x + 10
-        new_y = position_y - 10
-        self.goto(new_x, new_y)
-        print (new_x, new_y)
+    def bounce_y(self):
+        self.y_move *= -1
+
+    def bounce_x(self):
+        self.x_move *= -1
